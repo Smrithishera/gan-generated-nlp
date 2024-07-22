@@ -1,0 +1,84 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNDF3AbSa6Md+smTRIHTHVf",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Smrithishera/gan-generated-nlp/blob/main/data_loader.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "o76CSKfRkp5m"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np\n",
+        "from tensorflow.keras.preprocessing.text import Tokenizer\n",
+        "from tensorflow.keras.preprocessing.sequence import pad_sequences"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def load_data():\n",
+        "    # Sample text data\n",
+        "    data = [\n",
+        "        \"Hello world\",\n",
+        "        \"How are you\",\n",
+        "        \"I am fine\",\n",
+        "        \"Hello everyone\",\n",
+        "        \"Good morning\",\n",
+        "        \"Have a nice day\",\n",
+        "        \"See you later\",\n",
+        "        \"Good night\"\n",
+        "    ]\n",
+        "    return data\n",
+        "\n",
+        "def preprocess_data(data):\n",
+        "    tokenizer = Tokenizer()\n",
+        "    tokenizer.fit_on_texts(data)\n",
+        "    sequences = tokenizer.texts_to_sequences(data)\n",
+        "    max_sequence_len = max([len(seq) for seq in sequences])\n",
+        "    padded_sequences = pad_sequences(sequences, maxlen=max_sequence_len, padding='post')\n",
+        "    vocab_size = len(tokenizer.word_index) + 1\n",
+        "    return tokenizer, padded_sequences, vocab_size, max_sequence_len"
+      ],
+      "metadata": {
+        "id": "1wHOd5R-kysf"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "U50Ky5Vol0Zo"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
