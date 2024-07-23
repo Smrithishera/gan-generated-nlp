@@ -16,5 +16,7 @@ generate_text.py: Contains functions to generate text sequences using the traine
 
 Main Script:
 main.py: The main entry point of the project, which orchestrates the data loading, model building, training, and text generation processes.
+
+
 This project provides a foundational framework for experimenting with GANs in the context of text generation, showcasing the potential of generative models in natural language processing tasks.
 
